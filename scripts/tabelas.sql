@@ -84,8 +84,3 @@ CREATE TABLE policial_apreensao (
     id_pessoa integer,/*chave estrangeira*/
 	id_apreensao integer /*chave estrangeira*/
 );
-
-CREATE TABLE vitima_ocorrencia (
-    id_pessoa integer,/*chave estrangeira*/
-	id_ocorrencia integer /*chave estrangeira*/
-);
