@@ -1,5 +1,5 @@
 CREATE TABLE pessoa (
-	id_pessoa integer NOT NULL,
+	id_pessoa integer NOT NULL AUTO_INCREMENT,
 	nome varchar(50) NOT NULL,
 	tipo boolean NOT NULL,
 	cpf_cnpj varchar(14) NOT NULL,
@@ -10,7 +10,7 @@ CREATE TABLE pessoa (
 );
 
 CREATE TABLE endereco (
-    id_end integer NOT NULL,
+    id_end integer NOT NULL AUTO_INCREMENT,
     estado varchar(2) NOT NULL,
     municipio varchar(50) NOT NULL,
     CONSTRAINT pk_endereco PRIMARY KEY (id_end)
@@ -18,7 +18,7 @@ CREATE TABLE endereco (
 
 
 CREATE TABLE ocorrencia (
-    id_ocorrencia integer,
+    id_ocorrencia integer AUTO_INCREMENT,
     id_end integer,
 	tipo varchar(30),
     descricao varchar(255),
@@ -42,7 +42,7 @@ CREATE TABLE infrator_ocorrencia (
 );
 
 CREATE TABLE arma (
-    id_arma integer NOT NULL UNIQUE,
+    id_arma integer NOT NULL AUTO_INCREMENT,
 	modelo varchar(50) NOT NULL,
     situacao varchar(20) NOT NULL,
     CONSTRAINT pk_arma PRIMARY KEY (id_arma)
@@ -56,7 +56,7 @@ CREATE TABLE arma_ocorrencia (
 );
 
 CREATE TABLE denuncia (
-    id_denuncia integer NOT NULL,
+    id_denuncia integer NOT NULL AUTO_INCREMENT,
 	dt_denuncia date NOT NULL,
     motivo varchar(255) NOT NULL,
     CONSTRAINT pk_denuncia PRIMARY KEY (id_denuncia)
@@ -70,7 +70,7 @@ CREATE TABLE denuncia_denunciado (
 );
 
 CREATE TABLE veiculo (
-    id_veiculo integer NOT NULL,
+    id_veiculo integer NOT NULL AUTO_INCREMENT,
 	renavam varchar(25) NOT NULL,
     marca varchar(20),
     ano_fab integer,
@@ -80,7 +80,7 @@ CREATE TABLE veiculo (
 );
 
 CREATE TABLE apreensao (
-    id_apreensao integer,
+    id_apreensao integer AUTO_INCREMENT,
 	id_veiculo integer,
 	id_ocorrencia integer,
 	infracao varchar(20),
