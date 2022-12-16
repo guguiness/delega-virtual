@@ -4,11 +4,10 @@ CREATE TABLE pessoa (
 	tipo boolean NOT NULL,
 	cpf_cnpj varchar(14) NOT NULL,
 	dt_nasc_fund date NOT NULL,
+	funcionario boolean NOT NULL,
 	situacao varchar(15) NOT NULL,
 	CONSTRAINT pk_pessoa PRIMARY KEY (id_pessoa)
 );
-
-
 
 SELECT
 	*
