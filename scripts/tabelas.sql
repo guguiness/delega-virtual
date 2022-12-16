@@ -9,11 +9,6 @@ CREATE TABLE pessoa (
 	CONSTRAINT pk_pessoa PRIMARY KEY (id_pessoa)
 );
 
-SELECT
-	*
-FROM
-	pessoa;
-
 CREATE TABLE endereco (
     id_end integer NOT NULL,
     estado varchar(2) NOT NULL,
@@ -21,10 +16,6 @@ CREATE TABLE endereco (
     CONSTRAINT pk_endereco PRIMARY KEY (id_end)
 );
 
-SELECT
-	*
-FROM
-	endereco;
 
 CREATE TABLE ocorrencia (
     id_ocorrencia integer,
@@ -36,22 +27,12 @@ CREATE TABLE ocorrencia (
     CONSTRAINT fk_ocorrencia_pk_endereco FOREIGN KEY (id_end) REFERENCES endereco(id_end)
 );
 
-SELECT
-	*
-FROM
-	ocorrencia;
-
 CREATE TABLE vitima_ocorrencia (
     id_pessoa integer,
 	id_ocorrencia integer,
     CONSTRAINT fk_vitima_ocorrencia_pk_pessoa FOREIGN KEY (id_pessoa) REFERENCES pessoa(id_pessoa),
     CONSTRAINT fk_vitima_ocorrencia_pk_ocorrencia FOREIGN KEY (id_ocorrencia) REFERENCES ocorrencia(id_ocorrencia)
 );
-
-SELECT
-	*
-FROM
-	vitima_ocorrencia;
 
 CREATE TABLE infrator_ocorrencia (
     id_pessoa integer NOT NULL,
@@ -60,11 +41,6 @@ CREATE TABLE infrator_ocorrencia (
     CONSTRAINT fk_infrator_ocorrencia_pk_ocorrencia FOREIGN KEY (id_ocorrencia) REFERENCES ocorrencia(id_ocorrencia)
 );
 
-SELECT
-	*
-FROM
-	infrator_ocorrencia;
-
 CREATE TABLE arma (
     id_arma integer NOT NULL UNIQUE,
 	modelo varchar(50) NOT NULL,
@@ -72,22 +48,12 @@ CREATE TABLE arma (
     CONSTRAINT pk_arma PRIMARY KEY (id_arma)
 );
 
-SELECT
-	*
-FROM
-	arma;
-
 CREATE TABLE arma_ocorrencia (
 	id_arma integer NOT NULL,
     id_ocorrencia integer NOT NULL,
     CONSTRAINT fk_arma_ocorrencia_pk_arma FOREIGN KEY (id_arma) REFERENCES arma(id_arma),
     CONSTRAINT fk_arma_ocorrencia_pk_ocorrencia FOREIGN KEY (id_ocorrencia) REFERENCES ocorrencia(id_ocorrencia)
 );
-
-SELECT
-	*
-FROM
-	arma_ocorrencia;
 
 CREATE TABLE denuncia (
     id_denuncia integer NOT NULL,
