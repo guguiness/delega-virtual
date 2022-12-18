@@ -80,6 +80,8 @@ INSERT INTO veiculo
 VALUES
 	("00419784047", "Fiat", 2012, 3),
 	("65417692409", "Ford", 1995, 8);
+	("10162228344", "Citroën", 2012, 3),
+	("12345678909", "Volkswagen", 2012, 3);
 
 SELECT * FROM veiculo;
 
@@ -89,13 +91,17 @@ INSERT INTO apreensao
 VALUES 
 	(1, 1, "Veículo de fuga", "destruido"),
 	(2, 4, "Abandono", "retido");
+	(3, 3, "Veículo usado para ir até o local", "normal"),
+	(4, 3, "Veículo roubado, usado para fuga", "normal");
 
 SELECT * FROM apreensao;
 
 -- Policial que realizou a apreensão --
 INSERT INTO policial_apreensao VALUES
 	(2, 1),
-	(2, 2);
+	(2, 2),
+	(7, 3),
+	(7, 4);
 
 SELECT * FROM policial_apreensao;
 
@@ -105,6 +111,8 @@ INSERT INTO denuncia
 VALUES 
 	("2022-12-03", "Uma pessoa estranha foi vista do lado de fora da Mainardes Computadores, esperando algo.", TRUE, 1),
 	("2022-12-10", "O vizinho da testemunha toca música alta o dia todo, incomodando a vizinhança", FALSE, NULL);
+	("2022-11-18", "Um homem foi visto se aproximando da vítima para agredi-la verbalmente e cometer injúria racial", TRUE, 2),
+	("2022-12-18", "O suspeito foi visto nas câmeras de um estabelecimento próximo ao local pelos vigilantes", TRUE, 3);
 
 SELECT * FROM denuncia;
 
@@ -112,5 +120,7 @@ SELECT * FROM denuncia;
 INSERT INTO denuncia_denunciado VALUES
 	(1,3),
 	(2,11);
+	(5,2),
+	(6,3);
 
 SELECT * FROM denuncia_denunciado;
