@@ -14,8 +14,6 @@ VALUES
 	("Roberto Alencar", 0, "730.443.529-16", "1985-01-10", 0, "vivo"),
 	("José Ferreira", 0, "854.511.879-16", "1995-03-21", 0, "vivo"),
 	("Guilherme Gonçalves", 0, "104.081.719-01", "1987-06-17", 0, "desaparecido");
-	
-SELECT * FROM pessoa;
 
 -- Endereço --
 INSERT INTO endereco  
@@ -32,7 +30,7 @@ INSERT INTO ocorrencia
 	(id_end, tipo, descricao, situacao)
 VALUES
 	(1, "latrocínio", "O suspeito, Danilo Ventura, invadiu na noite de 2022-11-16 a loja de eletrônicos Mainardes Computadores. No momento do crime a dona da loja, Lúcia Mainardes, estava terminando o expediente quando o suspeito invadiu. O suspeito baleou a vítima e roubou diversos equipamentos eletrônicos. Ele foi interceptado e preso enquanto tentava escapar em seu carro de fuga", "solucionado"),
-	(2, "racismo", "A vítima, Alexander, foi vítima de racismo na tarde de 2022-11-18 no terminal central de ônibus por um homem que usava um boné vermelho, uma camiseta preta e calça jeans também preta.", "solucionado"),
+	(2, "racismo", "A vítima, Alexander, foi vítima de racismo na tarde de 2022-11-18 no terminal central de ônibus por um homem que usava um boné vermelho, uma camiseta preta e calça jeans também preta, que foi identificado como sendo Matheus Hero.", "solucionado"),
 	(3, "homicídio", "A vítima, Matheus Hero, foi morto a facadas pelo pai, Guilherme Gonçalves, e teve o corpo abandonado no rio. O criminoso está foragido.", "aberto"),
 	(2, "furto", "Os suspeitos, Carla Rodrigues e Joel Prado, aplicaram um golpe na vítima, Roberto Alencar, em que, após casar-se com Roberto, Carla transferiu todo seu dinheiro para sua conta bancária e, desde o dia 2022-12-05, está foragida juntamente com Joel, que participou do planejamento do crime. O carro do casal foi abandonado e apreendido.", "aberto");
 	
