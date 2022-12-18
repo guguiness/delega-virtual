@@ -1,8 +1,8 @@
 CREATE TABLE pessoa (
 	id_pessoa integer NOT NULL AUTO_INCREMENT,
 	nome varchar(50) NOT NULL,
-	tipo boolean NOT NULL,
-	cpf_cnpj varchar(14) NOT NULL,
+	tipo boolean NOT NULL,	/* 0 = pessoa física; 1 = pessoa jurídica*/
+	cpf_cnpj varchar(25) NOT NULL,
 	dt_nasc_fund date NOT NULL,
 	funcionario boolean NOT NULL,
 	situacao varchar(15) NOT NULL,
@@ -18,11 +18,11 @@ CREATE TABLE endereco (
 
 
 CREATE TABLE ocorrencia (
-    id_ocorrencia integer AUTO_INCREMENT,
-    id_end integer,
-	tipo varchar(30),
-    descricao varchar(255),
-    situacao char,
+    id_ocorrencia integer NOT NULL AUTO_INCREMENT,
+    id_end integer NOT NULL,
+	tipo varchar(30) NOT NULL,
+    descricao varchar(500) NOT NULL,
+    situacao varchar(20) NOT NULL,
     CONSTRAINT pk_ocorrencia PRIMARY KEY (id_ocorrencia),
     CONSTRAINT fk_ocorrencia_pk_endereco FOREIGN KEY (id_end) REFERENCES endereco(id_end)
 );
@@ -55,23 +55,9 @@ CREATE TABLE arma_ocorrencia (
     CONSTRAINT fk_arma_ocorrencia_pk_ocorrencia FOREIGN KEY (id_ocorrencia) REFERENCES ocorrencia(id_ocorrencia)
 );
 
-CREATE TABLE denuncia (
-    id_denuncia integer NOT NULL AUTO_INCREMENT,
-	dt_denuncia date NOT NULL,
-    motivo varchar(255) NOT NULL,
-    CONSTRAINT pk_denuncia PRIMARY KEY (id_denuncia)
-);
-
-CREATE TABLE denuncia_denunciado (
-	id_denuncia integer,
-    id_pessoa integer,
-	CONSTRAINT fk_denuncia_denunciado_pk_denuncia FOREIGN KEY (id_denuncia) REFERENCES denuncia(id_denuncia),
-	CONSTRAINT fk_denuncia_denunciado_pk_pessoa FOREIGN KEY (id_pessoa) REFERENCES pessoa(id_pessoa)
-);
-
 CREATE TABLE veiculo (
     id_veiculo integer NOT NULL AUTO_INCREMENT,
-	renavam varchar(25) NOT NULL,
+	renavam varchar(25) NOT NULL UNIQUE,
     marca varchar(20),
     ano_fab integer,
     id_proprietario integer NOT NULL,
@@ -95,4 +81,21 @@ CREATE TABLE policial_apreensao (
 	id_apreensao integer,
 	CONSTRAINT fk_policial_apreensao_pk_pessoa FOREIGN KEY (id_pessoa) REFERENCES pessoa(id_pessoa),
 	CONSTRAINT fk_policial_apreensao_pk_apreensao FOREIGN KEY (id_apreensao) REFERENCES apreensao(id_apreensao)
+);
+
+CREATE TABLE denuncia (
+    id_denuncia integer NOT NULL AUTO_INCREMENT,
+	dt_denuncia date NOT NULL,
+    motivo varchar(255) NOT NULL,
+    confirmada boolean NOT NULL,
+    id_ocorrencia integer,
+    CONSTRAINT pk_denuncia PRIMARY KEY (id_denuncia),
+    CONSTRAINT fk_denuncia_pk_ocorrencia FOREIGN KEY (id_ocorrencia) REFERENCES ocorrencia(id_ocorrencia)
+);
+
+CREATE TABLE denuncia_denunciado (
+	id_denuncia integer,
+    id_pessoa integer,
+	CONSTRAINT fk_denuncia_denunciado_pk_denuncia FOREIGN KEY (id_denuncia) REFERENCES denuncia(id_denuncia),
+	CONSTRAINT fk_denuncia_denunciado_pk_pessoa FOREIGN KEY (id_pessoa) REFERENCES pessoa(id_pessoa)
 );
