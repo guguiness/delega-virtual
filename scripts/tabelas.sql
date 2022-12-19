@@ -69,7 +69,7 @@ CREATE TABLE apreensao (
     id_apreensao integer AUTO_INCREMENT,
 	id_veiculo integer,
 	id_ocorrencia integer,
-	infracao varchar(20),
+	infracao varchar(50),
     situacao varchar(20),
     CONSTRAINT pk_apreensao PRIMARY KEY (id_apreensao),
     CONSTRAINT fk_apreensao_pk_veiculo FOREIGN KEY (id_veiculo) REFERENCES veiculo(id_veiculo),
